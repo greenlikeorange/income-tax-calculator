@@ -18,7 +18,7 @@
               <form class="col s12" id="incomeTaxForm" action="/">
                 <div class="row">
                   <div class="col s12">
-                    <input id="monthlyIncome" name="monthlyIncome" type="number" min="10000" step="10000" value="၁၀၀၀၀">
+                    <input id="monthlyIncome" name="monthlyIncome" type="number" min="10000" step="5000" value="10000">
                     <label for="monthlyIncome">
                       တစ်လဝင်ငွေ
                       <!-- <span class="right" id="monthlyIncomeInText"></span> -->
@@ -63,12 +63,25 @@
                 </div>
               </form>
               <div id="result-body" class="result-body col s12">
-                <h6>တစ်နှစ်စာအတွက် သင်ပေးဆောင်ရမည့် အခွန်ငွေ</h6>
-                <h5>
-                  <span id="result"></span> <small>ကျပ်</small>
-                </h5>
+                <div class="result-with-tax-amount">
+                  <h6>သင်ပေးဆောင်ရမည့် အခွန်ငွေမှာ</h6>
+                  <br>
+                  <h4>
+                    တစ်လလျှင်
+                    <span id="result-month"></span> <small>ကျပ်</small>
+                  </h4>
+                  <h4>
+                    တစ်နှစ်တွင်
+                    <span id="result-year"></span> <small>ကျပ်</small>
+                  </h4>
+                </div>
+                <div class="result-with-zero-tax">
+                  <br>
+                  <h4>သင်အခွန်ငွေ ထပ်ဆောင်းပေးရန် မလိုအပ်သေးပါ။</h4>
+                </div>
+                <br>
                 <p>
-                  အခွန်ငွေတွက်ချက်ပုံ <a href="http://www.irdmyanmar.gov.mm/ird/PDF/Union%20Taxation%20Law1_48_44_AMmm.pdf">အညွှန်း အခန်း ၆၊ ၁၉(က)</a> 
+                  အခွန်ငွေတွက်ချက်ပုံ <a href="https://github.com/greenlikeorange/income-tax-calculator/blob/master/README.md">အညွှန်း</a>
                 </p>
                 <div class="row">
                   <div class="col s12">
@@ -85,104 +98,21 @@
       <div class="footer-copyright">
         <div class="container">
         Design by kny.co
-        <a class="grey-text text-lighten-4 right" href="#!">Get it on github</a>
+        <a class="grey-text text-lighten-4 right" href="https://github.com/greenlikeorange/income-tax-calculator">Get it on github</a>
         </div>
       </div>
     </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga("create", "UA-79236821-1", "auto");
+      ga("send", "pageview");
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script type="text/javascript">
-      $incomeTaxForm = $("#incomeTaxForm");
-      $monthlyIncome = $("#monthlyIncome");
-      $father = $("#father");
-      $mother = $("#mother");
-      $married = $("#married");
-      $child = $("#child");
-
-      $result = $("#result");
-      $resultBody = $("#result-body");
-      $back = $("#back");
-
-      function addComma(num) {
-        var txt = "";
-        // console.log(num.split("").forEach());
-        num.split("").reverse().forEach(function (v,i) {
-          if (i !== 0 && i%3 === 0)
-            txt = v + "," + txt;
-          else
-            txt = v + txt;
-        });
-        return txt;
-      }
-
-      function toMyNumber(num) {
-        return Array.prototype.map.call(num + "", function (n) {
-          return "၀၁၂၃၄၅၆၇၈၉"[n];
-        }).join("");
-      }
-
-      var discountRules = {
-        parent: function (val) { return val - 1000000 },
-        married: function (val) { return val - 1000000 },
-        child: function (val, childAmount) { return val - (childAmount * 500000) }
-      };
-
-      function enableDisableChildOption() {
-        if (!$married.is(":checked"))
-          $child.prop("disabled", true);
-        else
-          $child.prop("disabled", false);
-      }
-
-      function init() {
-        enableDisableChildOption();
-      }
-
-      $back.click(function () {
-        $resultBody.removeClass("visable");
-      });
-
-      function caculate() {
-        var total = $monthlyIncome.val() * 12;
-        var tax;
-
-        if ($father.is(":checked"))
-          total = discountRules.parent(total);
-
-        if ($mother.is(":checked"))
-          total = discountRules.parent(total);
-
-        if ($married.is(":checked"))
-          total = discountRules.married(total);
-
-        if ($married.is(":checked") && $child.val() > 0)
-          total = discountRules.child(total, $child.val());
-
-        // Tax Rules
-        if (total <= 2000000)
-          tax = 0;
-        else if (total <= 5000000)
-          tax = (total/100) * 5;
-        else if (total <= 10000000)
-          tax = (total/100) * 10;
-        else if (total <= 20000000)
-          tax = (total/100) * 15;
-        else if (total <= 30000000)
-          tax = (total/100) * 20;
-        else if (total > 30000000)
-          tax = (total/100) * 25;
-
-        $resultBody.addClass("visable");
-        $result.html(addComma(toMyNumber(tax)));
-      }
-
-      $married.change(enableDisableChildOption);
-      $incomeTaxForm.submit(function (event) {
-        event.preventDefault();
-        caculate();
-        return false;
-      });
-      init();
-    </script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
