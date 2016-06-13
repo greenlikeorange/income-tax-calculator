@@ -1,0 +1,26 @@
+{
+  "name": "myanmar-incometax-caculator",
+  "authors": [
+    "Thuya Myo Nyunt <ty@kny.co>"
+  ],
+  "description": "Myanmar income tax caculator",
+  "main": "index.html",
+  "keywords": [
+    "myanmar",
+    "income",
+    "tax"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.0.0",
+    "bootstrap": "^3.3.6"
+  }
+}
