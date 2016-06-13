@@ -36,6 +36,12 @@ hr {
   transition: 0.3s all ease;
 }
 
-.visable {
+.result-body.visable {
   top: 0;
 }
+
+.result-with-zero-tax { display: none; }
+.result-with-tax-amount { display: block; }
+
+.result-body.visable.zero-tax .result-with-zero-tax { display: block; }
+.result-body.visable.zero-tax .result-with-tax-amount { display: none; }
