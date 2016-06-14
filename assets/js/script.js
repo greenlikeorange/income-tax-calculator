@@ -32,7 +32,7 @@
   var discountRules = {
     general: function (val) {
       var twentyPercentage = val * 0.2;
-      return val - (twentyPercentage < 10000000 ? twentyPercentage : 100000000);
+      return val - (twentyPercentage < 10000000 ? twentyPercentage : 10000000);
     },
     parent: function (val) { return val - 1000000 },
     married: function (val) { return val - 1000000 },
@@ -90,6 +90,7 @@
       var addition = rule.addition;
       var percent = rule.percent;
 
+      console.log(total, addition, percent);
       if (total > 0) {
         if (total <= addition) {
           tax += total * percent;
@@ -99,6 +100,7 @@
           total -= addition;
         }
       }
+      console.log(total, addition, tax);
     });
 
     if (tax === 0) {
