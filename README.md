@@ -1,5 +1,7 @@
 # ဝင်ငွေခွန်တွက်စက်
 
+[http://tools.kny.co/income-tax-calculator/](http://tools.kny.co/income-tax-calculator/)
+
 #### တွင်ချက်ပုံ အဆင့်ဆင့်
 
 **၁၂လစာ ဝင်ငွေအပေါ် အောက်ပါ သက်သာခွင့်များ နုတ်သည်**
