@@ -40,10 +40,13 @@
   };
 
   function enableDisableChildOption() {
+    return false;
+    /*
     if (!$married.is(":checked"))
       $child.prop("disabled", true);
     else
       $child.prop("disabled", false);
+    */
   }
 
   function init() {
