@@ -22,7 +22,10 @@
 | ၂၀,၀၀၀,၀၀၁ | ၃၀,၀၀၀,၀၀၀ | ၂၀% |
 | ၃၀,၀၀၀,၀၀၁ | အထက် | ၂၅% |
 
+[အချားဖတ်စရာ](l1-link)
+
 ##### အထက်ပါချက်အလပ်များ မှားရွင်းပါက issue ဖွင့်၍၎င်း ty@kny.co သို့ email ပို့၍၎င်း ဆက်သွယ် အကြံပြုပေးပါရန် မေတ္တာရပ်ခံပါသည်။
 
-[l1-link]: http://www.irdmyanmar.gov.mm/ird/PDF/income%20tax%20rule2_39_58_AMeng.pdf
-[l2-link]: http://www.irdmyanmar.gov.mm/ird/PDF/Union%20Taxation%20Law1_48_44_AMmm.pdf
+[l1-link]: http://www.mof.gov.mm/sites/default/files/Income%20Rule%20%26%20Regulation%20and%20CT%20Regulation.pdf
+[l2-link]: http://www.mof.gov.mm/sites/default/files/TotalIncomeTaxLaw.pdf
+[l3-link]: http://www.mof.gov.mm/sites/default/files/Incometaxstructure_1.pdf
