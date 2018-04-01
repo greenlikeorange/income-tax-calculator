@@ -1,4 +1,4 @@
-# ဝင်ငွေခွန်တွက်စက်
+# ဝင်ငွေခွန် တွက်စက်
 
 [http://tools.kny.co/income-tax-calculator/](http://tools.kny.co/income-tax-calculator/)
 
