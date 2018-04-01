@@ -110,7 +110,7 @@
       $resultBody.addClass("zero-tax");
     }
     $resultBody.addClass("visable");
-    $resultMonth.html(addComma(toMyNumber((tax/12).toFixed())));
+    // $resultMonth.html(addComma(toMyNumber((tax/12).toFixed())));
     $resultYear.html(addComma(toMyNumber(tax)));
   }
 
